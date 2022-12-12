@@ -2,14 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>custom-element demo</title>
+    <title>hold-button-element demo</title>
   </head>
   <body>
-    <custom-element></custom-element>
+    <a href="#">First focusable element</a><br><br>
+    <hold-button activation-delay="500">Hold Button!</hold-button>
+    <br><br><a href="#">Last focusable element</a>
+    <button>Normal Button</button>
 
     <script type="module">
-      // import 'https://unpkg.com/@github/custom-element-boilerplate@latest/dist/custom-element.js'
-      import '../src/custom-element.ts'
+      // import 'https://unpkg.com/@github/hold-button-element-boilerplate@latest/dist/custom-element.js'
+      import '../src/hold-button-element.ts'
+      document.querySelector('hold-button').addEventListener('click', (event) => {
+        alert('Button Click!')
+      })
+      document.addEventListener('click', (event) => {
+        if (event.target.matches('hold-button')) {
+          alert('Body Click!')
+        }
+      })
     </script>
   </body>
 </html>
